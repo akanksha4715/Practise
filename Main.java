@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,29 +14,24 @@ public class Main {
 }
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        int start;
+
+        if(Arrays.stream(gas).sum() < Arrays.stream(cost).sum()) return -1;
+
+        int start=0;
         int n = gas.length;
 
+        int surplus = 0;
+
         for(int i=0; i<n; i++){
-            if(gas[i] > cost[i]){
-                start = i;
-                
-                int j = i+1;
-                int g = gas[i] - cost[i];
-                while(j%n != start){
-                    j %= n;
-                    g = g + gas[j] - cost [j];
-                    if(!(g >= 0))
-                        break;
-                    j++;
-                    
-                }
-                j %= n;
-                if(j == start)
-                    return start;
-            }
+            surplus += gas[i] - cost[i];
+
+            if(surplus < 0){
+                start = i+1;
+                surplus = 0;
+            } 
+            
         }
 
-        return -1;
+        return  start ;
     }
 }
