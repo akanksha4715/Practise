@@ -1,11 +1,15 @@
-
+import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        DuplicateNo sol = new DuplicateNo();
-        int[] arr = {1,3,3,4,2,5};
-        
-        System.out.println(sol.findDuplicate(arr));
+        List<List<Integer>> arr = List.of(
+            List.of(1,2, 3),
+            List.of( 4, 5),
+            List.of(6, 7, 8, 15),
+            List.of(10,11,12,13),
+            List.of(5, 10)
+        );
+        System.out.println(KthSmallest.kSmallestNumber(arr, 50));
     }
     
 }
