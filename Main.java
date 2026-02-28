@@ -9,7 +9,7 @@ public class Main {
             List.of(10,11,12,13),
             List.of(5, 10)
         );
-        System.out.println(KthSmallest.kSmallestNumber(arr, 50));
+        System.out.println(TopKEle.reorganizeString("aaabc"));
     }
     
 }
