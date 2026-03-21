@@ -19,3 +19,5 @@ public class MaxScore {
         
         return sum;
     }
+
+}
